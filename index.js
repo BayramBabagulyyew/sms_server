@@ -28,10 +28,11 @@ const server = app.listen(PORT, () => {
 });
 
 const io = require("./socket").init(server);
-io.on("connection", (socket) => {
-  console.log("IO connected ++++++++++++");
+const otpNamespace = io.of("/otp"); // Initialize the /otp namespace
+otpNamespace.on("connection", (socket) => {
+  console.log("IO connected to /otp namespace ");
 
   socket.on("disconnect", () => {
-    console.log("disconnected");
+    console.log("disconnected from /otp namespace");
   });
 });

@@ -9,6 +9,6 @@ module.exports = {
     if (!io) {
       throw new Error("Socket.io not initialized!");
     }
-    return io;
+    return io.of("/otp");
   },
 };
